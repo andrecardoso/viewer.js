@@ -50,6 +50,7 @@
     "sinon": "^1.10.2",
     "sinon-qunit": "^2.0.0",
     "jquery": "^1.11.1",
+    "hammerjs": "^2.0.2",
     "qunitjs": "^1.14.0",
     "qunit-parameterize": "^0.4.0",
     "event-source-polyfill": "0.0.1",

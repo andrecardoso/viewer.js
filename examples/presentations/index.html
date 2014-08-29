@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="pageflip.css" />
     <link rel="stylesheet" href="carousel.css" />
     <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../node_modules/hammerjs/hammer.min.js"></script>
     <script src="../../build/crocodoc.viewer.js"></script>
     <style>
         html, body {
@@ -56,7 +57,7 @@
     </div>
     <script>
         var viewer,
-            url = 'https://view-api.box.com/1/sessions/5a34f299b35947b5ac1e0b4d83553392/assets';
+            url = 'https://view-api.box.com/1/sessions/a7b7e41df3894924bee97fb1435ab3f7/assets';
 
         function setMode(mode) {
             $('.controls button').removeClass('selected');
@@ -107,7 +108,17 @@
                 ev.preventDefault();
             });
 
-            setMode('pop');
+            setMode('slide');
+        });
+
+        var viewerElement = document.getElementsByClassName('viewer')[0];
+        var mc = new Hammer(viewerElement);
+        mc.on('swiperight', function() {
+            viewer.scrollTo(Crocodoc.SCROLL_PREVIOUS);
+        });
+
+        mc.on('swipeleft', function() {
+            viewer.scrollTo(Crocodoc.SCROLL_NEXT);
         });
 
 
